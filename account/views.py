@@ -50,3 +50,33 @@ def Customer_Order(request):
         'form':form
     }
     return render(request,'account/customer_order.html',context)
+
+def Update_Order(request, pk):
+
+    order=Order.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form=OrderForm(request.POST,instance=order)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form=OrderForm(instance=order)
+    context={
+        'form':form
+    }
+    return render(request,'account/customer_order.html',context)
+
+
+def Delete_Order(request, pk):
+
+    item=Order.objects.get(pk=pk)
+
+    if request.method == 'POST':
+
+        item.delete()
+        return redirect('/')
+    else:
+        pass
+    
+    return render(request,'account/delete.html',{'item':item})

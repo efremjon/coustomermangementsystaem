@@ -40,10 +40,11 @@
 		<h5>LAST 5 ORDERS</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'cust_order' %}">Create Order</a>
+			
 			<table class="table table-sm">
 				<tr>
 					<th>Product</th>
+					<th>Note</th>
 					<th>Date Orderd</th>
 					<th>Status</th>
 					<th>Update</th>
@@ -52,6 +53,7 @@
 				{% for Order in Orders %}
 				<tr>
 					<td>{{Order.product}}</td>
+					<td>{{Order.note}}</td>
                     <td>{{Order.date_created}}</td>
 					<td>{{Order.status}}</td>
 					<td><a href="{% url 'update_order' Order.id %}" class="btn btn-sm btn-info">Update</a></td>

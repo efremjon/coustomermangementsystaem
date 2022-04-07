@@ -1,4 +1,15 @@
 {% load static %}
+<style>
+
+  .hellouser{
+
+    font-size: 25px;
+    color: #fff;
+    margin-right: 20px;
+
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <img src="{% static 'images/logo.png ' %}">
@@ -17,5 +28,9 @@
          
         </ul>
       </div>
+      <span class="text-white m-3 text-center" id="hellouser">Hello, {{request.user}} </span>
+      <span><a href="{% url 'logout' %}" class="btn btn-info">Logout</a> </span>
     </div>
+
+
   </nav>

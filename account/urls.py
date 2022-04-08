@@ -4,13 +4,15 @@ urlpatterns = [
 
 # this is authentication apart.
 
-    path('register/', views.registerPage, name="register"),
+    path('register/', views.registerPage, name="re"),
 	path('login/', views.loginPage, name="login"),  
 	path('logout/', views.logoutUser, name="logout"),
 
 # this part is
 
     path('',views.home,name='home'),
+    path('user/', views.userPage, name="user-page"),
+    path('account/', views.accountSettings, name="account"),
     path('product/',views.product,name='product'),
     path('customer/<str:pk_cust>/',views.customer,name='customer'),
     

@@ -18,14 +18,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          
+          {% if request.user.is_staff %}
           <li class="nav-item">
             <a class="nav-link text-white" href="{% url 'home' %}">Dashborad</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="{% url 'product' %}">Product</a>
           </li>
-         
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account' %}">Settings</a>
+          </li>
+         {% endif %}
         </ul>
       </div>
       <span class="text-white m-3 text-center" id="hellouser">Hello, {{request.user}} </span>

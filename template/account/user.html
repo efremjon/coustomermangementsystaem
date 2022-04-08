@@ -1,0 +1,35 @@
+{%  extends 'account/main.html' %}
+{% block content %}
+{%  include 'account/status.html' %}
+
+<!-- <h3>User Profile</h3> -->
+<div class="col-md-7 ">
+    <h5>LAST 5 ORDERS</h5>
+    <hr>
+    <div class="card card-body">
+        
+        <table class="table table-sm">
+            <tr>
+                <th>Product</th>
+                <th>Note</th>
+                <th>Date Orderd</th>
+                <th>Status</th>
+                <!-- <th>Update</th>
+                <th>Remove</th> -->
+            </tr>
+            {% for Order in Orders %}
+            <tr>
+                <td>{{Order.product}}</td>
+                <td>{{Order.note}}</td>
+                <td>{{Order.date_created}}</td>
+                <td>{{Order.status}}</td>
+                <!-- <td><a href="{% url 'update_order' Order.id %}" class="btn btn-sm btn-info">Update</a></td>
+                <td><a href="{% url 'delete_order' Order.id %}" class="btn btn-sm btn-danger">Delete</a></td> -->
+            </tr>
+            
+                {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
